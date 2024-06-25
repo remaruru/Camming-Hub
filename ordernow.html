@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camming Hub</title>
+    <style>
+        body {
+            text-shadow: 0 0 2px #000000;
+            color: #ffffff;
+            font-family: sans-serif;
+            background-image: url('background.gif');
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.gif');
+  background-repeat: no-repeat;
+  background-size: 100% 119%; 
+        }
+
+        header {
+            background-color: #000000;
+            border-radius: 10px;
+            border-color: #ffffff;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #ffffff;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        header span {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 20px; 
+            border: 2px solid #ffffff;
+            background-color: #000000;
+            border-radius: 5px;
+            
+        }
+
+        nav a {
+            font-size: 24px;
+            text-decoration: none;
+            padding: 5px;
+            color: #ffffff;
+        }
+
+        nav a:hover {
+            background-color: #ccc;
+        }
+        .order-section {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px; 
+    width: auto;
+}
+    form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #total-display {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <header>
+            <h3>Camming Hub™</h3>
+            <nav>
+                <span><a href="Untitled-2.html">HOME</a></span>
+                <span><a href="checklist.html">CHECK SPECS AND LIST</a></span>
+    <span><a href="ordernow.html">ORDER NOW</a></span>
+    <span><a href="contact us.html">CONTACT US</a></span>
+    <span><a href="about us.html">ABOUT US</a></span>
+            </nav>
+        </header>
+    </div>
+
+    <div class="order-section">
+        <form id="order-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="number">Phone Number:</label>
+            <input type="tel" id="number" name="number" pattern="[0-9]{10}" required>
+
+            <label for="product">Select a Product:</label>
+<select id="product" name="product" required>
+    <option value="1" data-name="EOS R100 (RF-S18-45mmf/4.5-6.3 IS STM)" data-price="42998" data-image="camera1.png">1</option>
+    <option value="2" data-name="EOS R6 Mark II (RF24-105mm f/4-7.1 IS STM)" data-price="199998" data-image="camera2.png">2</option>
+    <option value="3" data-name="EOS R7 (RF-S18-150mm f/3.5-6.3 IS STM)" data-price="121998" data-image="camera3.png">3</option>
+    <option value="4" data-name="EOS 3000D Kit (EF S18-55 III)" data-price="30998" data-image="camera4.png">4</option>
+</select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <button type="button" onclick="calculateTotal()">Order Now</button>
+        </form>
+        <div id="total-display">
+            <h4 id="product-name"></h4>
+            <img id="product-image" src="" alt="">
+            <div id="name-display">Name: </div>
+            <div id="address-display">Address: </div>
+            <div id="phone-number-display">Phone Number: </div>
+            <div id="price-display">Price: </div>
+            <div id="shipping-fee-display">Shipping Fee: PHP 60</div>
+            <div id="total-amount">Total: </div>
+            
+        </div>
+
+    <script>
+        function calculateTotal() {
+
+    const selectedOption = document.getElementById('product').options[document.getElementById('product').selectedIndex];
+    const productName = selectedOption.getAttribute('data-name');
+    const productPrice = parseFloat(selectedOption.getAttribute('data-price'));
+    const productImage = selectedOption.getAttribute('data-image');
+    const quantity = parseInt(document.getElementById('quantity').value);
+
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const phoneNumber = document.getElementById('number').value;
+
+   
+    document.getElementById('product-name').innerHTML = `Product: ${productName}`;
+    document.getElementById('product-image').src = productImage;
+    document.getElementById('name-display').innerHTML = `Name: ${name}`;
+    document.getElementById('address-display').innerHTML = `Address: ${address}`;
+    document.getElementById('phone-number-display').innerHTML = `Phone Number: ${phoneNumber}`;
+
+  
+    const subtotal = productPrice * quantity;
+    const shippingFee = 60;
+    const totalAmount = subtotal + shippingFee;
+
+  
+    document.getElementById('price-display').innerHTML = `Price: PHP ${subtotal}`;
+    document.getElementById('total-amount').innerHTML = `Total: PHP ${totalAmount}`;
+}
+
+
+function getProductImage(productName) {
+ 
+  
+    switch (productName) {
+        case 'Camera 1':
+            return 'camera1.png'; 
+        case 'Camera 2':
+            return 'camera2.png'; 
+        case 'Camera 3':
+            return 'camera3.png';
+        case 'Camera 4':
+            return 'camera4.png';
+        default:
+            return 'cameralogos.png'; 
+    }
+}
+    </script>
+     
+  </div>
+   
+</body>
+</html>

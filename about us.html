@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camming Hub</title>
+    <style>
+        body {
+            text-shadow: 0 0 2px #000000;
+            color: #ffffff;
+            font-family: sans-serif;
+            background-image: url('background.gif');
+            background-repeat: no-repeat;
+            background-size: 100% 125%;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000000;
+            border-radius: 10px;
+            border-color: #ffffff;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #ffffff;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        header span {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 20px;
+            border: 2px solid #ffffff;
+            background-color: #000000;
+            border-radius: 5px;
+        }
+
+        nav a {
+            font-size: 24px;
+            text-decoration: none;
+            padding: 5px;
+            color: #ffffff;
+        }
+
+        nav a:hover {
+            background-color: #ccc;
+        }
+
+        .about-us {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            height: 670px;
+            text-align: center;
+        }
+
+        .about-us h2,
+        .about-us p {
+            color: #ffffff;
+            font-size: 24px;
+            
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 30px; 
+            margin: 0 10px;
+        }
+        #high-quality-cameras img {
+       width: 10%;
+       
+   }
+
+
+.contact-info {
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.contact-info h2,
+.contact-info p {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.phone-icon {
+    font-size: 30px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.copied-message {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <header>
+            <h3>Camming Hub™</h3>
+            <nav>
+                <span><a href="Untitled-2.html">HOME</a></span>
+                <span><a href="checklist.html">CHECK SPECS AND LIST</a></span>
+    <span><a href="ordernow.html">ORDER NOW</a></span>
+    <span><a href="contact us.html">CONTACT US</a></span>
+    <span><a href="about us.html">ABOUT US</a></span>
+            </nav>
+        </header>
+    </div>
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>At Camming Hub™, we are passionate about capturing life's moments in stunning detail. As a leading online destination for photography enthusiasts, we specialize in providing a curated selection of high-quality Canon cameras that empower you to unleash your creativity and preserve memories with precision and clarity</p>
+        <div>Reference Links</div>
+        <div>Camera 1:https://ph.canon/en/consumer/eos-3000d-kit-ef-s18-55-iii/product</div>
+        <div>Camera 2:https://ph.canon/en/consumer/eos-r6-mark-ii-rf24-105mm-f-4-7-1-is-stm/product</div>
+        <div>Camera 3:https://ph.canon/en/consumer/eos-r7-rf-s18-150mm-f-3-5-6-3-is-stm/product</div>
+        <div>Camera 4:https://ph.canon/en/consumer/eos-3000d-kit-ef-s18-55-iii/product</div>
+        <main><section id="high-quality-cameras">
+        <img src="cameralogos.png" alt="High quality cameras">
+    </main>
+        <h2>Developer:<h2></h2><div>Hello, I'm Earl Angelo Roldan, the visionary creator behind this online platform dedicated to the world of photography. With a passion for capturing life's beautiful moments, I embarked on a mission to establish a user-friendly haven for camera enthusiasts. This website is meticulously crafted to simplify the online camera purchasing experience, offering a seamless journey from exploration to order completion. Here, we showcase an extensive collection of cutting-edge cameras, with a particular emphasis on the renowned Canon brand, ensuring that every customer can effortlessly access and acquire the perfect device to elevate their photography journey. Join us in embracing the art of visual storytelling as we strive to make the world of photography accessible to all, one click at a time</div></p>
+        <h2>Contacts</h2>
+     <h2></h2>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/RemRemaru69" target="_blank"><img src="facebook.svg" alt="Facebook Icon"></a>
+            <a href="mailto:earlangeloroldan18@gmail.com"><img src="envelope-open-text-solid.svg" alt="Email Icon"></a>
+            <a href="tel:+63 995 463 6481" class="phone-icon" onclick="copyPhoneNumber()"><img src="phone-solid.svg" alt="Email Icon">
+            <div class="copied-message" id="copiedMessage"></div>
+        </div>
+    </div>
+    <div class="background">
+   
+    </div>
+    <script>
+        function copyPhoneNumber() {
+            var phoneNumber = document.querySelector('.phone-icon').textContent; 
+            var tempInput = document.createElement('input');
+            tempInput.value = phoneNumber;
+            document.body.appendChild(tempInput);
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            var copiedMessage = document.getElementById('copiedMessage');
+            copiedMessage.textContent = '+63 995 463 6481';
+            setTimeout(function () {
+                copiedMessage.textContent = '+63 995 463 6481';
+            }, 600); 
+        }
+    </script>
+</body>
+
+</html>
